@@ -118,6 +118,22 @@ export async function POST(request: Request) {
       });
     }
 
+    if (method === 'notifications/initialized') {
+      return NextResponse.json({
+        jsonrpc: '2.0',
+        id: null,
+        result: {}
+      });
+    }
+
+    if (method === 'ping' || method === 'server/ping') {
+      return NextResponse.json({
+        jsonrpc: '2.0',
+        id,
+        result: {}
+      });
+    }
+
     if (method === 'resources/list') {
       return NextResponse.json({
         jsonrpc: '2.0',
